@@ -1,7 +1,7 @@
 #########################################
 # groupe MI 2
 # Kamila DIMIA
-# Marlone BERTUIT
+# Marlone BERTUIT*
 # Nathan AMOUSSOU
 # https://github.com/uvsqNathanAmoussou/projet_tas_de_sable
 #########################################
