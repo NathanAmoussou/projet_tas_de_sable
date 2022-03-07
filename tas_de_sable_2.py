@@ -70,6 +70,13 @@ def config_aleatoire():
     maj_grille()
 
 
+def nettoyer_grille():
+    for i in range(TAILLE):
+        for j in range(TAILLE):
+            config_courante[i][j] = 0
+    maj_grille()
+
+
 ########################################
 # programme principal
 
@@ -79,10 +86,12 @@ racine.title('Tas de sable')
 racine.geometry('700x700+100+50')
 canevas = Canvas(racine, bg='white')
 bouton_config_aleatoire = Button(racine, text='Configuration aléatoire', command=config_aleatoire)
+bouton_nettoyer = Button(racine, text='Nettoyer', command=nettoyer_grille)
 
 # placement des widgets
 canevas.pack(fill=BOTH, expand=1)
 bouton_config_aleatoire.pack()
+bouton_nettoyer.pack()
 
 # boucle principale
 init_grille()
