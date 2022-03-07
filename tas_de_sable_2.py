@@ -36,7 +36,7 @@ grille_de_rectangles = []
 def init_grille():
     """Crée la configuration courante vide de grains de sable (donc une liste à deux dimensions de 0).
     Crée une première liste de rectangles et les affiche dans le canevas (les rectangles sont du coup accessible, voir # exemple)."""
-    global config_courante, grille_de_rectangle, x, y
+    global config_courante, grille_de_rectangles, x, y
     # on réinitialise le bordel
     config_courante = []
     grille_de_rectangles = []
@@ -51,12 +51,15 @@ def init_grille():
             x += 5
         x = 10
         y += 5
-    # exemple : canevas.itemconfig(grille_de_rectangles[3][7], fill='green')
-    
+    # canevas.itemconfig(grille_de_rectangles[3][7], fill='green') # exemple
 
-
-def test():
-    pass
+def maj_grille():
+    """Met à jour la couleur des rectangles en fonction des valeurs de la configuration courante."""
+    global grille_de_rectangles
+    for lignenum, ligne in enumerate(config_courante):
+        for colnum, valeur in enumerate(ligne):
+            clr = couleurs[valeur]
+            canevas.itemconfig(grille_de_rectangles[lignenum][colnum], fill=clr)
 
 
 ########################################
@@ -75,4 +78,5 @@ bouton_config_aleatoire.pack()
 
 # boucle principale
 init_grille()
+maj_grille()
 mainloop()
