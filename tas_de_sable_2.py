@@ -10,8 +10,9 @@
 # import des librairies
 
 from distutils.command.config import config
+from re import T
 from tkinter import *
-import random as rd
+import random
 
 
 ########################################
@@ -62,6 +63,13 @@ def maj_grille():
             canevas.itemconfig(grille_de_rectangles[lignenum][colnum], fill=clr)
 
 
+def config_aleatoire():
+    for i in range(TAILLE):
+        for j in range(TAILLE):
+            config_courante[i][j] = random.randint(1, 3)
+    maj_grille()
+
+
 ########################################
 # programme principal
 
@@ -70,7 +78,7 @@ racine = Tk()
 racine.title('Tas de sable')
 racine.geometry('700x700+100+50')
 canevas = Canvas(racine, bg='white')
-bouton_config_aleatoire = Button(racine, text='Configuration aléatoire')
+bouton_config_aleatoire = Button(racine, text='Configuration aléatoire', command=config_aleatoire)
 
 # placement des widgets
 canevas.pack(fill=BOTH, expand=1)
@@ -78,5 +86,4 @@ bouton_config_aleatoire.pack()
 
 # boucle principale
 init_grille()
-maj_grille()
 mainloop()
